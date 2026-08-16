@@ -4,6 +4,14 @@ import { accordionData } from "./data/acc-data";
 const Accordion = () => {
   const [toggle, setToggle] = useState(false);
   const [activeIndex, setActiveIndex] = useState(null);
+
+  if (accordionData.length === 0) {
+    return (
+      <>
+        <h1>No items available</h1>
+      </>
+    );
+  }
   return (
     <div>
       {accordionData.map((item, index) => {
