@@ -3,20 +3,15 @@ import "./App.css";
 import Accordion from "./components/Accordion";
 import ChipsInput from "./components/ChipsInput";
 import ProgressBar from "./components/ProgressBar";
+import TodoApp from "./components/TodoApp";
 
 function App() {
   return (
-    <div className="App">
+    <div className="App m-2">
       {/* <Accordion /> */}
       {/* <ChipsInput /> */}
-      <ProgressBar progress={100} />
-      <ProgressBar progress={90} />
-      <ProgressBar progress={80} />
-      <ProgressBar progress={70} />
-      <ProgressBar progress={67.4} />
-      <ProgressBar progress={30} />
-      <ProgressBar progress={3} />
-      <ProgressBar progress={0.0111} />
+      {/* <ProgressBar progress={100} /> */}
+      <TodoApp />
     </div>
   );
 }
