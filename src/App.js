@@ -4,6 +4,7 @@ import Accordion from "./components/Accordion";
 import ChipsInput from "./components/ChipsInput";
 import ProgressBar from "./components/ProgressBar";
 import TodoApp from "./components/TodoApp";
+import OTPInput from "./components/OTPInput";
 
 function App() {
   return (
@@ -11,7 +12,8 @@ function App() {
       {/* <Accordion /> */}
       {/* <ChipsInput /> */}
       {/* <ProgressBar progress={100} /> */}
-      <TodoApp />
+      {/* <TodoApp /> */}
+      <OTPInput />
     </div>
   );
 }
