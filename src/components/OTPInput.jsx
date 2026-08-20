@@ -15,9 +15,15 @@ const OTPInput = () => {
     value && inputRefArr.current[index + 1]?.focus();
   };
 
-  const handleBackClick = (e, index) => {
+  const handleKeyDown = (e, index) => {
     if (e.key == "Backspace") {
       !e.target.value && inputRefArr.current[index - 1]?.focus();
+    }
+    if (e.key == "ArrowRight") {
+      inputRefArr.current[index + 1]?.focus();
+    }
+    if (e.key == "ArrowLeft") {
+      inputRefArr.current[index - 1]?.focus();
     }
   };
 
@@ -39,7 +45,7 @@ const OTPInput = () => {
               }}
               className="border border-black h-20 w-20 text-center text-2xl"
               onChange={(e) => handleOnInput(e.target.value, index)}
-              onKeyDown={(e) => handleBackClick(e, index)}
+              onKeyDown={(e) => handleKeyDown(e, index)}
             />
           );
         })}
