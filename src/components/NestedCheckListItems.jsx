@@ -1,7 +1,32 @@
+import { checkListData } from "./NestedCheckList";
+
 const NestedCheckListItems = ({ data, checked, setChecked }) => {
-  const handleChange = (e, id) => {
+  const handleChange = (isCheked, node) => {
     setChecked((prev) => {
-      const newState = { ...prev, [id]: e.target.checked };
+      const newState = { ...prev, [node.id]: isCheked };
+
+      const upDateChild = (node) => {
+        node?.children?.forEach((child) => {
+          newState[child.id] = isCheked;
+          child?.children && upDateChild(child);
+        });
+      };
+      upDateChild(node);
+
+      const verifyNode = (node) => {
+        if (!node.children?.length) {
+          return newState[node.id] || false;
+        }
+
+        const allChildrenChecked = node.children.every((child) =>
+          verifyNode(child),
+        );
+        newState[node.id] = allChildrenChecked;
+        return allChildrenChecked;
+      };
+
+      checkListData.forEach((node) => verifyNode(node));
+
       return newState;
     });
   };
@@ -15,7 +40,7 @@ const NestedCheckListItems = ({ data, checked, setChecked }) => {
               type="checkbox"
               id={item.id}
               checked={checked[item.id] || false}
-              onChange={(e) => handleChange(e, item.id)}
+              onChange={(e) => handleChange(e.target.checked, item)}
             />
             <label htmlFor={item.id}>{item.name}</label>
           </div>
