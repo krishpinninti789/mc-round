@@ -5,6 +5,7 @@ import ChipsInput from "./components/ChipsInput";
 import ProgressBar from "./components/ProgressBar";
 import TodoApp from "./components/TodoApp";
 import OTPInput from "./components/OTPInput";
+import NestedCheckList from "./components/NestedCheckList";
 
 function App() {
   return (
@@ -13,7 +14,8 @@ function App() {
       {/* <ChipsInput /> */}
       {/* <ProgressBar progress={100} /> */}
       {/* <TodoApp /> */}
-      <OTPInput />
+      {/* <OTPInput />*/}
+      <NestedCheckList/>
     </div>
   );
 }
