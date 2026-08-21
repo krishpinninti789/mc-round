@@ -1,74 +1,78 @@
 import NestedCheckListItems from "./NestedCheckListItems";
 
-const NestedCheckList = () => {
+const NestedCheckList = ({ checked, setChecked }) => {
   const checkListData = [
     {
-      name: 'Fruit',
+      name: "Fruit",
       id: 1,
       children: [
         {
           name: "Citrus",
-          id: 1,
+          id: 2,
           children: [
             {
               name: "Orange",
-              id:1
+              id: 3,
             },
             {
               name: "Lemon",
-              id:2
+              id: 4,
             },
-          ]
+          ],
         },
         {
           name: "Banana",
-          id: 2,
+          id: 5,
         },
         {
           name: "Grape",
-          id: 3,
+          id: 6,
         },
-      ]
+      ],
     },
     {
       name: "Animals",
-      id: 2,
+      id: 7,
       children: [
         {
           name: "Dog",
-          id: 1,
+          id: 8,
         },
         {
           name: "Cat",
-          id: 2,
+          id: 9,
         },
         {
           name: "Bird",
-          id: 3,
+          id: 10,
         },
-      ]
+      ],
     },
     {
       name: "Vegetables",
-      id: 3,
+      id: 11,
       children: [
         {
           name: "Carrot",
-          id: 1,
+          id: 12,
         },
         {
           name: "Broccoli",
-          id: 2,
+          id: 13,
         },
         {
           name: "Spinach",
-          id: 3,
+          id: 14,
         },
-      ]
+      ],
     },
-  ]
+  ];
   return (
-    <NestedCheckListItems data={checkListData} className="text-start" />
+    <NestedCheckListItems
+      data={checkListData}
+      checked={checked}
+      setChecked={setChecked}
+    />
   );
 };
 
