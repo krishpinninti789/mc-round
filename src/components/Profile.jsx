@@ -1,6 +1,6 @@
 import React from "react";
 
-const Profile = ({ data, setData }) => {
+const Profile = ({ data, setData, errors }) => {
   const { name, email } = data;
 
   const handleOnChange = (name, value) => {
@@ -20,6 +20,9 @@ const Profile = ({ data, setData }) => {
           onChange={(e) => handleOnChange("name", e.target.value)}
         />
       </div>
+      {errors && errors.name && (
+        <span className="text-red-400">{errors.name}</span>
+      )}
 
       <div>
         <label htmlFor="email">Email</label>
@@ -32,6 +35,9 @@ const Profile = ({ data, setData }) => {
           onChange={(e) => handleOnChange("email", e.target.value)}
         />
       </div>
+      {errors && errors.email && (
+        <span className="text-red-400">{errors.email}</span>
+      )}
     </div>
   );
 };

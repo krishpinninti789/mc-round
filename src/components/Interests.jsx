@@ -1,6 +1,6 @@
 import React from "react";
 
-const Interests = ({ data, setData }) => {
+const Interests = ({ data, setData, errors }) => {
   const { interests } = data;
 
   const handleOnChange = (e) => {
@@ -37,6 +37,29 @@ const Interests = ({ data, setData }) => {
         />
         Music
       </label>
+      <label>
+        <input
+          type="checkbox"
+          value="dance"
+          name="dance"
+          checked={interests.includes("dance")}
+          onChange={(e) => handleOnChange(e)}
+        />
+        Dance
+      </label>
+      <label>
+        <input
+          type="checkbox"
+          value="art"
+          name="art"
+          checked={interests.includes("art")}
+          onChange={(e) => handleOnChange(e)}
+        />
+        Art
+      </label>
+      {errors && errors.interests && (
+        <span className="text-red-400">{errors.interests}</span>
+      )}
     </div>
   );
 };
