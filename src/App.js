@@ -7,18 +7,20 @@ import TodoApp from "./components/TodoApp";
 import OTPInput from "./components/OTPInput";
 import NestedCheckList from "./components/NestedCheckList";
 import { useState } from "react";
+import TabForm from "./components/TabForm";
 
 function App() {
-  const [checked, setChecked] = useState({ 1: true });
+  // const [checked, setChecked] = useState({ 1: true });
 
   return (
-    <div className="App m-2">
+    <div className="App">
       {/* <Accordion /> */}
       {/* <ChipsInput /> */}
       {/* <ProgressBar progress={100} /> */}
       {/* <TodoApp /> */}
       {/* <OTPInput />*/}
-      <NestedCheckList checked={checked} setChecked={setChecked} />
+      {/* <NestedCheckList checked={checked} setChecked={setChecked} /> */}
+      <TabForm />
     </div>
   );
 }
