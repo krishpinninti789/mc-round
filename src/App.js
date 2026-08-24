@@ -8,6 +8,7 @@ import OTPInput from "./components/OTPInput";
 import NestedCheckList from "./components/NestedCheckList";
 import { useState } from "react";
 import TabForm from "./components/TabForm";
+import Pagination from "./components/Pagination";
 
 function App() {
   // const [checked, setChecked] = useState({ 1: true });
@@ -20,7 +21,8 @@ function App() {
       {/* <TodoApp /> */}
       {/* <OTPInput />*/}
       {/* <NestedCheckList checked={checked} setChecked={setChecked} /> */}
-      <TabForm />
+      {/* <TabForm /> */}
+      <Pagination />
     </div>
   );
 }
