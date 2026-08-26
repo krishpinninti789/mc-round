@@ -9,6 +9,7 @@ import NestedCheckList from "./components/NestedCheckList";
 import { useState } from "react";
 import TabForm from "./components/TabForm";
 import Pagination from "./components/Pagination";
+import AutoCompleteSearch from "./components/AutoCompleteSearch";
 
 function App() {
   // const [checked, setChecked] = useState({ 1: true });
@@ -22,7 +23,8 @@ function App() {
       {/* <OTPInput />*/}
       {/* <NestedCheckList checked={checked} setChecked={setChecked} /> */}
       {/* <TabForm /> */}
-      <Pagination />
+      {/* <Pagination /> */}
+      <AutoCompleteSearch />
     </div>
   );
 }
