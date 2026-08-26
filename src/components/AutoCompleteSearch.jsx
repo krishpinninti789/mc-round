@@ -4,13 +4,20 @@ const AutoCompleteSearch = () => {
   const [searchResults, setSearchResults] = useState([]);
   const [input, setInput] = useState("");
   const [show, setShow] = useState(false);
+  const [cache, setCache] = useState({});
 
   const fetchData = async () => {
+    if (cache[input]) {
+      setSearchResults(cache[input]);
+      return;
+    }
     const data = await fetch(
       `https://dummyjson.com/products/search?q=${input}`,
     );
+
     const json = await data.json();
     setSearchResults(json.products);
+    setCache((prev) => ({ ...prev, [input]: json.products }));
   };
 
   useEffect(() => {
