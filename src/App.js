@@ -10,12 +10,13 @@ import { useState } from "react";
 import TabForm from "./components/TabForm";
 import Pagination from "./components/Pagination";
 import AutoCompleteSearch from "./components/AutoCompleteSearch";
+import FileExplorer from "./components/FileExplorer";
 
 function App() {
   // const [checked, setChecked] = useState({ 1: true });
 
   return (
-    <div className="App">
+    <div className="App flex justify-center h-screen">
       {/* <Accordion /> */}
       {/* <ChipsInput /> */}
       {/* <ProgressBar progress={100} /> */}
@@ -24,7 +25,8 @@ function App() {
       {/* <NestedCheckList checked={checked} setChecked={setChecked} /> */}
       {/* <TabForm /> */}
       {/* <Pagination /> */}
-      <AutoCompleteSearch />
+      {/* <AutoCompleteSearch /> */}
+      <FileExplorer />
     </div>
   );
 }
