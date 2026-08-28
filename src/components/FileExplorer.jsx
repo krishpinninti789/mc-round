@@ -1,13 +1,42 @@
 import React, { useState } from "react";
 import { fileData } from "./data/explorerData";
 
-const List = ({ data }) => {
+const List = ({ data, setData }) => {
   const [isExpanded, setIsExpanded] = useState({});
   const handleExpand = (item) => {
     setIsExpanded((prev) => ({
       ...prev,
       [item.name]: !prev[item.name],
     }));
+  };
+
+  const handleAddNode = (item) => {
+    const nodeName = prompt("Enter name : ");
+    const newNode = {
+      id: Date.now(),
+      name: nodeName,
+      isFolder: false,
+    };
+
+    const addNodeAndReturnFullTree = (nodes) => {
+      return nodes.map((node) => {
+        if (node.id === item.id) {
+          return {
+            ...node,
+            children: [...node.children, newNode],
+          };
+        }
+        if (node.children) {
+          return {
+            ...node,
+            children: addNodeAndReturnFullTree(node.children),
+          };
+        }
+        return node;
+      });
+    };
+
+    setData((prev) => addNodeAndReturnFullTree(prev));
   };
   return (
     <div className="flex flex-col items-start text-start mx-6 p-3">
@@ -30,8 +59,16 @@ const List = ({ data }) => {
             >
               {item.name}
             </span>
+            {item.isFolder && (
+              <span
+                onClick={() => handleAddNode(item)}
+                className="cursor-pointer"
+              >
+                ➕
+              </span>
+            )}
             {isExpanded?.[item.name] && item?.children && (
-              <List data={item.children} />
+              <List data={item.children} setData={setData} />
             )}
           </div>
         );
@@ -42,7 +79,7 @@ const List = ({ data }) => {
 
 const FileExplorer = () => {
   const [data, setData] = useState(fileData);
-  return <List data={data} />;
+  return <List data={data} setData={setData} />;
 };
 
 export default FileExplorer;
