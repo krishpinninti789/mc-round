@@ -38,6 +38,30 @@ const List = ({ data, setData }) => {
 
     setData((prev) => addNodeAndReturnFullTree(prev));
   };
+
+  const handleDeleteNode = (item) => {
+    const deleteNode = (nodes) => {
+      const filteredNodes = nodes.filter((node) => node.id !== item.id);
+
+      if (filteredNodes.length !== nodes.length) {
+        return filteredNodes;
+      }
+
+      return filteredNodes.map((node) => {
+        if (node.children) {
+          return {
+            ...node,
+            children: deleteNode(node.children),
+          };
+        }
+
+        return node;
+      });
+    };
+
+    setData((prev) => deleteNode(prev));
+  };
+
   return (
     <div className="flex flex-col items-start text-start mx-6 p-3">
       {data.map((item) => {
@@ -67,6 +91,12 @@ const List = ({ data, setData }) => {
                 ➕
               </span>
             )}
+            <span
+              onClick={() => handleDeleteNode(item)}
+              className="cursor-pointer"
+            >
+              🗑️
+            </span>
             {isExpanded?.[item.name] && item?.children && (
               <List data={item.children} setData={setData} />
             )}
