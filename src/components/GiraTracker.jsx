@@ -43,14 +43,15 @@ const GiraTracker = () => {
   };
 
   const filteredTasks = tasks.filter((task) => {
-    const matchesSearch = task.title
-      .toLowerCase()
-      .includes(inputTitle.trim().toLowerCase());
+    const matchesSearch =
+      !inputTitle ||
+      task.title.toLowerCase().includes(inputTitle.trim().toLowerCase());
 
     const matchesPriority =
-      priority && task.priority.toLowerCase() === priority.trim().toLowerCase();
+      !priority ||
+      task.priority.toLowerCase() === priority.trim().toLowerCase();
 
-    return matchesSearch || matchesPriority;
+    return matchesSearch && matchesPriority;
   });
 
   return (
