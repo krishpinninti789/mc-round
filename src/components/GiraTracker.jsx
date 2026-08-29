@@ -4,6 +4,7 @@ import { jiraData } from "./data/giraData";
 const GiraTracker = () => {
   const [tasks, setTasks] = useState(jiraData);
   const [inputTitle, setInputTitle] = useState("");
+  const [priority, setPriority] = useState("");
 
   const handleAddTask = () => {
     const taskName = prompt("Enter task: ");
@@ -41,9 +42,16 @@ const GiraTracker = () => {
     setTasks((prev) => prev.filter((item) => item.id !== id));
   };
 
-  const filteredTasks = tasks.filter((task) =>
-    task.title.toLowerCase().includes(inputTitle.toLowerCase()),
-  );
+  const filteredTasks = tasks.filter((task) => {
+    const matchesSearch = task.title
+      .toLowerCase()
+      .includes(inputTitle.trim().toLowerCase());
+
+    const matchesPriority =
+      priority && task.priority.toLowerCase() === priority.trim().toLowerCase();
+
+    return matchesSearch || matchesPriority;
+  });
 
   return (
     <div className="min-h-screen bg-gray-50 p-8">
@@ -61,6 +69,19 @@ const GiraTracker = () => {
           value={inputTitle}
           onChange={(e) => setInputTitle(e.target.value)}
         />
+
+        <select
+          className="p-2 border border-gray-400 rounded-lg text-xs font-bold"
+          onChange={(e) => setPriority(e.target.value)}
+          value={priority}
+        >
+          <option value="">Select Priority</option>
+          {["p0", "p1", "p2"].map((item, index) => (
+            <option key={index} value={item}>
+              {item.toUpperCase()}
+            </option>
+          ))}
+        </select>
 
         <div className="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm">
           <table className="w-full border-collapse">
