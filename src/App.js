@@ -11,6 +11,7 @@ import TabForm from "./components/TabForm";
 import Pagination from "./components/Pagination";
 import AutoCompleteSearch from "./components/AutoCompleteSearch";
 import FileExplorer from "./components/FileExplorer";
+import GiraTracker from "./components/GiraTracker";
 
 function App() {
   // const [checked, setChecked] = useState({ 1: true });
@@ -26,7 +27,8 @@ function App() {
       {/* <TabForm /> */}
       {/* <Pagination /> */}
       {/* <AutoCompleteSearch /> */}
-      <FileExplorer />
+      {/* <FileExplorer /> */}
+      <GiraTracker />
     </div>
   );
 }
