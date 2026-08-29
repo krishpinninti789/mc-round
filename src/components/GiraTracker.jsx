@@ -3,6 +3,7 @@ import { jiraData } from "./data/giraData";
 
 const GiraTracker = () => {
   const [tasks, setTasks] = useState(jiraData);
+  const [inputTitle, setInputTitle] = useState("");
 
   const handleAddTask = () => {
     const taskName = prompt("Enter task: ");
@@ -36,6 +37,14 @@ const GiraTracker = () => {
     );
   };
 
+  const handleDeleteTask = (id) => {
+    setTasks((prev) => prev.filter((item) => item.id !== id));
+  };
+
+  const filteredTasks = tasks.filter((task) =>
+    task.title.toLowerCase().includes(inputTitle.toLowerCase()),
+  );
+
   return (
     <div className="min-h-screen bg-gray-50 p-8">
       <div className="mx-auto max-w-5xl">
@@ -46,6 +55,12 @@ const GiraTracker = () => {
         >
           Create task
         </button>
+        <input
+          placeholder="Search tasks here: "
+          className="border border-gray-400 p-3 mx-3 rounded-lg"
+          value={inputTitle}
+          onChange={(e) => setInputTitle(e.target.value)}
+        />
 
         <div className="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm">
           <table className="w-full border-collapse">
@@ -73,7 +88,7 @@ const GiraTracker = () => {
             </thead>
 
             <tbody>
-              {tasks.map((item) => (
+              {filteredTasks.map((item) => (
                 <tr
                   key={item.id}
                   className="border-b border-gray-100 last:border-b-0 hover:bg-gray-50"
@@ -127,6 +142,15 @@ const GiraTracker = () => {
                       onClick={() => handleEditTaskTitle(item.id, item.title)}
                     >
                       Edit task Title
+                    </button>
+                  </td>
+                  <td>
+                    {" "}
+                    <button
+                      className="bg-red-700 p-2 rounded-lg text-white text-xs cursor-pointer"
+                      onClick={() => handleDeleteTask(item.id)}
+                    >
+                      Delete task
                     </button>
                   </td>
                 </tr>
