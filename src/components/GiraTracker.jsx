@@ -16,6 +16,26 @@ const GiraTracker = () => {
     setTasks((prev) => [...prev, newTask]);
   };
 
+  const handleUpdatePriority = (id) => {
+    const updatedPriority = prompt("Enter priority you wanted to update:");
+
+    setTasks((prev) =>
+      prev.map((task) =>
+        task.id === id ? { ...task, priority: updatedPriority } : task,
+      ),
+    );
+  };
+
+  const handleEditTaskTitle = (id, title) => {
+    const updatedTitle = prompt("Enter the title", title);
+
+    setTasks((prev) =>
+      prev.map((item) =>
+        item.id === id ? { ...item, title: updatedTitle } : item,
+      ),
+    );
+  };
+
   return (
     <div className="min-h-screen bg-gray-50 p-8">
       <div className="mx-auto max-w-5xl">
@@ -45,6 +65,9 @@ const GiraTracker = () => {
                 </th>
                 <th className="px-6 py-4 text-sm font-semibold text-gray-600">
                   Priority Action
+                </th>
+                <th className="px-6 py-4 text-sm font-semibold text-gray-600">
+                  Edit
                 </th>
               </tr>
             </thead>
@@ -95,6 +118,15 @@ const GiraTracker = () => {
                       onClick={() => handleUpdatePriority(item.id)}
                     >
                       Update priority
+                    </button>
+                  </td>
+                  <td>
+                    {" "}
+                    <button
+                      className="bg-green-700 p-2 rounded-lg text-white text-xs cursor-pointer"
+                      onClick={() => handleEditTaskTitle(item.id, item.title)}
+                    >
+                      Edit task Title
                     </button>
                   </td>
                 </tr>
