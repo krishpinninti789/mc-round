@@ -12,6 +12,7 @@ import Pagination from "./components/Pagination";
 import AutoCompleteSearch from "./components/AutoCompleteSearch";
 import FileExplorer from "./components/FileExplorer";
 import GiraTracker from "./components/GiraTracker";
+import ImageCaurosal from "./components/ImageCaurosal";
 
 function App() {
   // const [checked, setChecked] = useState({ 1: true });
@@ -28,7 +29,8 @@ function App() {
       {/* <Pagination /> */}
       {/* <AutoCompleteSearch /> */}
       {/* <FileExplorer /> */}
-      <GiraTracker />
+      {/* <GiraTracker /> */}
+      <ImageCaurosal />
     </div>
   );
 }
