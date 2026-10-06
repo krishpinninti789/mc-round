@@ -1,19 +1,23 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { IMG_DATA } from "./data/imageData";
 
 const ImageCaurosal = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const interactiveRef = useRef(false);
 
   const handlePrev = () => {
     setCurrentIndex((prev) => prev - 1);
+    interactiveRef.current = true;
   };
 
   const handleNext = () => {
     setCurrentIndex((prev) => prev + 1);
+    interactiveRef.current = true;
   };
 
   useEffect(() => {
     const timer = setInterval(() => {
+      if (interactiveRef.current) return;
       setCurrentIndex((prev) => (prev + 1) % IMG_DATA.length);
     }, 2000);
     return () => clearInterval(timer);
