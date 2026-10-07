@@ -14,6 +14,7 @@ import FileExplorer from "./components/FileExplorer";
 import GiraTracker from "./components/GiraTracker";
 import ImageCaurosal from "./components/ImageCaurosal";
 import GridGame from "./components/GridGame";
+import CounterApp from "./components/CounterApp";
 
 function App() {
   // const [checked, setChecked] = useState({ 1: true });
@@ -32,7 +33,8 @@ function App() {
       {/* <FileExplorer /> */}
       {/* <GiraTracker /> */}
       {/* <ImageCaurosal /> */}
-      <GridGame />
+      {/* <GridGame /> */}
+      <CounterApp />
     </div>
   );
 }
