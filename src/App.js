@@ -13,6 +13,7 @@ import AutoCompleteSearch from "./components/AutoCompleteSearch";
 import FileExplorer from "./components/FileExplorer";
 import GiraTracker from "./components/GiraTracker";
 import ImageCaurosal from "./components/ImageCaurosal";
+import GridGame from "./components/GridGame";
 
 function App() {
   // const [checked, setChecked] = useState({ 1: true });
@@ -30,7 +31,8 @@ function App() {
       {/* <AutoCompleteSearch /> */}
       {/* <FileExplorer /> */}
       {/* <GiraTracker /> */}
-      <ImageCaurosal />
+      {/* <ImageCaurosal /> */}
+      <GridGame />
     </div>
   );
 }
