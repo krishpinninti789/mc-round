@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 
 const toastConfig = [
   {
@@ -21,22 +21,27 @@ const toastConfig = [
 
 const Toaster = () => {
   const [toasts, setToasts] = useState([]);
+  const timerRef = useRef({});
 
   const handleAddToast = (message, type) => {
     const id = new Date().getTime();
     const newToast = { id, message, type };
     setToasts((prev) => [...prev, newToast]);
-    setTimeout(() => {
+
+    timerRef.current[id] = setTimeout(() => {
       setToasts((prev) => prev.filter((item) => item.id !== id));
     }, 4000);
   };
 
   const handleRemoveToast = (id) => {
+    clearTimeout(timerRef.current[id]);
+    delete timerRef.current[id];
     const newToasts = toasts.filter((item) => item.id !== id);
     setToasts(newToasts);
   };
 
   console.log(toasts);
+  console.log(timerRef);
 
   return (
     <div className="relative flex h-full justify-between">
