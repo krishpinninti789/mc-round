@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.toastBtn {
+  @apply p-3 bg-gray-500 rounded-lg border-none;
+}

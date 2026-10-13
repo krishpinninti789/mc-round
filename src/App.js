@@ -15,26 +15,14 @@ import GiraTracker from "./components/GiraTracker";
 import ImageCaurosal from "./components/ImageCaurosal";
 import GridGame from "./components/GridGame";
 import CounterApp from "./components/CounterApp";
+import Toaster from "./components/Toaster.jsx";
 
 function App() {
   // const [checked, setChecked] = useState({ 1: true });
 
   return (
-    <div className="App flex justify-center h-screen">
-      {/* <Accordion /> */}
-      {/* <ChipsInput /> */}
-      {/* <ProgressBar progress={100} /> */}
-      {/* <TodoApp /> */}
-      {/* <OTPInput />*/}
-      {/* <NestedCheckList checked={checked} setChecked={setChecked} /> */}
-      {/* <TabForm /> */}
-      {/* <Pagination /> */}
-      {/* <AutoCompleteSearch /> */}
-      {/* <FileExplorer /> */}
-      {/* <GiraTracker /> */}
-      {/* <ImageCaurosal /> */}
-      {/* <GridGame /> */}
-      <CounterApp />
+    <div className="App m-3">
+      <Toaster />
     </div>
   );
 }
