@@ -31,6 +31,10 @@ const OTPInput = () => {
     inputRefArr.current[0]?.focus();
   }, []);
 
+  useEffect(() => {
+    console.log(inputRefArr);
+  }, [inputRefArr.current.values()]);
+
   return (
     <div>
       <h1 className="font-bold text-2xl">Validate OTP</h1>

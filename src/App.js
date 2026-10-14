@@ -22,7 +22,7 @@ function App() {
 
   return (
     <div className="App m-3">
-      <Toaster />
+      <OTPInput />
     </div>
   );
 }
