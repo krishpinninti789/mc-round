@@ -16,13 +16,14 @@ import ImageCaurosal from "./components/ImageCaurosal";
 import GridGame from "./components/GridGame";
 import CounterApp from "./components/CounterApp";
 import Toaster from "./components/Toaster.jsx";
+import StepperComponent from "./components/StepperComponent.jsx";
 
 function App() {
   // const [checked, setChecked] = useState({ 1: true });
 
   return (
     <div className="App m-3">
-      <OTPInput />
+      <StepperComponent />
     </div>
   );
 }
