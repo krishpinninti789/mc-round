@@ -18,14 +18,19 @@ import CounterApp from "./components/CounterApp";
 import Toaster from "./components/Toaster.jsx";
 import StepperComponent from "./components/StepperComponent.jsx";
 import DataPagination from "./components/DataPagination.jsx";
+import VirtualizedList from "./components/VirtualizedList.jsx";
+import { V_DATA } from "./components/data/vdata.js";
 
 function App() {
   // const [checked, setChecked] = useState({ 1: true });
+  const data = V_DATA
 
   return (
     <div className="App m-3">
       {/* <StepperComponent /> */}
-      <DataPagination />
+      {/* <DataPagination /> */}
+      {/* <ImageCaurosal /> */}
+      <VirtualizedList data={data} height={300} width={400} itemHeight={30} />
     </div>
   );
 }
