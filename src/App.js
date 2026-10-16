@@ -20,6 +20,7 @@ import StepperComponent from "./components/StepperComponent.jsx";
 import DataPagination from "./components/DataPagination.jsx";
 import VirtualizedList from "./components/VirtualizedList.jsx";
 import { V_DATA } from "./components/data/vdata.js";
+import RatingStars from "./components/RatingStars.jsx";
 
 function App() {
   // const [checked, setChecked] = useState({ 1: true });
@@ -27,10 +28,7 @@ function App() {
 
   return (
     <div className="App m-3">
-      {/* <StepperComponent /> */}
-      {/* <DataPagination /> */}
-      {/* <ImageCaurosal /> */}
-      <VirtualizedList data={data} height={300} width={400} itemHeight={30} />
+      <RatingStars />
     </div>
   );
 }
