@@ -14,8 +14,10 @@ const RatingStars = () => {
               onClick={() => setRatingStars(index)}
               onMouseOver={() => setHoverIndex(index)}
               onMouseLeave={() => setHoverIndex(null)}
-              className={`${(hoverIndex === null && index <= ratingStars) || index <= hoverIndex ? "bg-yellow-400" : ""} text-2xl border border-black rounded-md p-8`}
-            ></span>
+              className={`${(hoverIndex === null && index <= ratingStars) || index <= hoverIndex ? "text-yellow-400" : ""} text-2xl  p-8`}
+            >
+              &#9733;
+            </span>
           ))}
       </div>
     </div>
